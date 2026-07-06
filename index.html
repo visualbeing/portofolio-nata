@@ -22,13 +22,13 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        bebas: ['Bebas Neue', 'sans-serif'], // Font ala judul Netflix
-                        sans: ['Inter', 'sans-serif'],       // Font untuk deskripsi
+                        bebas: ['Bebas Neue', 'sans-serif'], 
+                        sans: ['Inter', 'sans-serif'],       
                     },
                     colors: {
                         netflix: {
-                            red: '#E50914', // Merah akurat Netflix
-                            bg: '#141414',  // Background utama Netflix
+                            red: '#E50914', 
+                            bg: '#141414',  
                             dark: '#000000',
                             gray: '#2B2B2B',
                         }
@@ -99,27 +99,25 @@
     <section id="beranda" class="relative h-screen flex items-center justify-start overflow-hidden">
         
         <!-- Video Background -->
-        <!-- Gunakan link MP4 langsung di bagian 'src'. Anda bisa menggantinya nanti -->
         <div class="absolute inset-0 w-full h-full z-0">
             <video autoplay loop muted playsinline class="object-cover w-full h-full">
-                <!-- Contoh video stok gratis (editing video). Ganti link src di bawah ini jika punya video sendiri -->
+                <!-- Contoh video stok gratis (editing video). -->
                 <source src="https://cdn.coverr.co/videos/coverr-editing-a-video-on-a-laptop-4482/1080p.mp4" type="video/mp4">
             </video>
             
-            <!-- Vignette / Gradasi Gelap agar teks mudah dibaca (Khas Netflix) -->
+            <!-- Vignette / Gradasi Gelap agar teks mudah dibaca -->
             <div class="absolute inset-0 bg-gradient-to-r from-netflix-bg via-netflix-bg/70 to-transparent"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-netflix-bg via-transparent to-netflix-bg/40"></div>
         </div>
 
         <div class="max-w-[1400px] w-full mx-auto px-6 lg:px-12 relative z-10 fade-in pt-20">
             <div class="max-w-2xl">
-                <!-- Label atas (Netflix Original Style) -->
+                <!-- Label atas -->
                 <div class="flex items-center gap-2 mb-2">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="N" class="h-4 filter grayscale brightness-200 hidden"> <!-- Opsi jika mau pakai logo 'N' -->
                     <span class="text-netflix-red font-bold tracking-widest text-sm uppercase">Karya Orisinal Oleh</span>
                 </div>
 
-                <!-- Nama Anda (Bebas Neue Font) -->
+                <!-- Nama -->
                 <h1 class="font-bebas text-7xl md:text-8xl lg:text-9xl tracking-wide leading-none text-white drop-shadow-2xl mb-4">
                     TEGAR <br> ADINATA
                 </h1>
@@ -130,7 +128,7 @@
                     Membawa konsep imajinatif menjadi realitas visual yang memukau dan sinematik.
                 </p>
 
-                <!-- Tombol CTA (Call To Action) - Netflix Style Buttons -->
+                <!-- Tombol CTA -->
                 <div class="flex flex-wrap gap-4">
                     <!-- Tombol WhatsApp -->
                     <button onclick="bukaWhatsApp()" class="bg-white hover:bg-gray-200 text-black px-6 py-3 rounded flex items-center gap-3 font-semibold transition-all duration-200">
@@ -166,7 +164,7 @@
         </div>
     </section>
 
-    <!-- Modal Video / Pop-up (Netflix Player Style) -->
+    <!-- Modal Video / Pop-up -->
     <div id="videoModal" class="fixed inset-0 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
         <div class="absolute inset-0 bg-black/95 backdrop-blur-md cursor-pointer" onclick="tutupVideo()"></div>
         
@@ -187,7 +185,7 @@
     <section id="tentang" class="py-24 bg-netflix-dark relative z-10">
         <div class="max-w-[1400px] mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-16 items-center">
             <div>
-                <!-- Gambar Profil / Setup (Ganti link gambar ini dengan foto Anda) -->
+                <!-- Gambar Profil / Setup -->
                 <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Tegar Adinata Setup" class="rounded-lg shadow-2xl object-cover aspect-[4/3] border border-white/5 opacity-80 hover:opacity-100 transition-opacity duration-500">
             </div>
             <div>
@@ -245,15 +243,21 @@
 
         // ----------------------------------------------------------------------
         // 2. DATA VIDEO PORTFOLIO
-        // - aksi: "modal" (Putar di web ini) -> wajib gunakan link /embed/
-        // - aksi: "tab_baru" (Buka di tab baru) -> cocok untuk link Reels/TikTok
         // ----------------------------------------------------------------------
         const dataPortofolio = [
+             {
+                title: "Video Clip", // Judul yang Anda minta
+                category: "Music Video",
+                // Menggunakan thumbnail bawaan YouTube (Bisa diganti link gambar lain)
+                thumbnail: "https://img.youtube.com/vi/ZBEBBuDpabU/maxresdefault.jpg", 
+                url: "https://www.youtube.com/embed/ZBEBBuDpabU?autoplay=1", // Link Embed
+                aksi: "modal" 
+            },
             {
-                title: "ZOMBIEJAMBULA - "KEPAKSAYAP" feat MARGA'O and theHERMANDOZ",
-                category: "Video Clip",
-                thumbnail: "https://youtube/ZBEBBuDpabU?si=-zwHUQGNvbHkiSLV",
-                url: "https://youtube/ZBEBBuDpabU?si=-zwHUQGNvbHkiSLV",
+                title: "Cinematic Travel Bali",
+                category: "Travel",
+                thumbnail: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                url: "https://www.youtube.com/embed/aqz-KE-bpKQ?autoplay=1",
                 aksi: "modal" 
             },
             {
@@ -269,13 +273,6 @@
                 thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 url: "https://www.instagram.com/reel/C-XYZ123ABC/", 
                 aksi: "tab_baru" 
-            },
-            {
-                title: "Midnight Symphony",
-                category: "Music Video",
-                thumbnail: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                url: "https://www.youtube.com/embed/kJQP7kiw5Fk?autoplay=1",
-                aksi: "modal"
             }
         ];
 
@@ -317,7 +314,7 @@
                         <!-- Gambar Thumbnail -->
                         <img src="${item.thumbnail}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-40 transition-opacity duration-300">
                         
-                        <!-- Icon Play (Muncul saat di hover) -->
+                        <!-- Icon Play -->
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             ${iconPlay}
                         </div>
@@ -336,7 +333,6 @@
         function bukaVideo(url) {
             iframe.src = url; 
             
-            // Penyesuaian ukuran jika itu Instagram Post Embed
             if(url.includes("instagram.com")) {
                 iframeContainer.classList.remove('aspect-video');
                 iframeContainer.classList.add('aspect-square', 'max-w-md');
